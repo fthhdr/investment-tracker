@@ -114,12 +114,17 @@ st.markdown("""
     font-weight: 600 !important;
     padding-left: 7px !important;
   }
-  /* Hide radio circles */
+  /* Hide radio circles and all widget labels in sidebar */
   [data-testid="stSidebar"] .stRadio input[type="radio"] {
     display: none !important;
   }
-  [data-testid="stSidebar"] .stRadio div[data-testid="stWidgetLabel"] {
+  [data-testid="stSidebar"] .stRadio > label,
+  [data-testid="stSidebar"] .stRadio div[data-testid="stWidgetLabel"],
+  [data-testid="stSidebar"] [data-testid="stWidgetLabel"] {
     display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   /* Tighten spacing between radio groups */
   [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
@@ -471,7 +476,7 @@ for group_name, group_pages in NAV_GROUPS.items():
         unsafe_allow_html=True
     )
     selected = st.sidebar.radio(
-        label=group_name,
+        label=" ",
         options=group_pages,
         label_visibility="collapsed",
         key=f"nav_{group_name}",
