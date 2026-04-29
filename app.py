@@ -55,26 +55,186 @@ st.markdown("""
 <link rel="apple-touch-icon" href="https://img.icons8.com/fluency/96/stock-share.png">
 """, unsafe_allow_html=True)
 
-# ── Custom CSS (desktop + mobile responsive) ──────────────────────────────────
+# ── Custom CSS (Clean & Modern — desktop + mobile responsive) ────────────────
 st.markdown("""
 <style>
-  /* ── Base styles ── */
+  /* ── Global base ── */
+  html, body, [data-testid="stAppViewContainer"] {
+    background-color: #F1F5F9 !important;
+  }
+  .block-container {
+    padding: 1.5rem 2rem 3rem !important;
+    max-width: 1200px !important;
+  }
+
+  /* ── Sidebar: dark navy ── */
+  [data-testid="stSidebar"] {
+    background-color: #0F172A !important;
+  }
+  [data-testid="stSidebar"] * {
+    color: #CBD5E1 !important;
+  }
+  [data-testid="stSidebar"] .stMarkdown p,
+  [data-testid="stSidebar"] .stCaption {
+    color: #64748B !important;
+    font-size: 11px !important;
+  }
+  [data-testid="stSidebar"] h1,
+  [data-testid="stSidebar"] h2,
+  [data-testid="stSidebar"] h3 {
+    color: #F8FAFC !important;
+  }
+
+  /* ── Sidebar nav: hide radio circles, style as nav items ── */
+  [data-testid="stSidebar"] .stRadio > div {
+    gap: 2px !important;
+  }
+  [data-testid="stSidebar"] .stRadio label {
+    background: transparent;
+    border-radius: 6px;
+    padding: 7px 12px !important;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: block !important;
+    width: 100% !important;
+    font-size: 13px !important;
+    color: #94A3B8 !important;
+  }
+  [data-testid="stSidebar"] .stRadio label:hover {
+    background: rgba(255,255,255,0.07) !important;
+    color: #E2E8F0 !important;
+  }
+  [data-testid="stSidebar"] .stRadio [data-checked="true"] ~ label,
+  [data-testid="stSidebar"] .stRadio label[data-checked="true"] {
+    background: rgba(37,99,235,0.2) !important;
+    border-left: 3px solid #2563EB !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    padding-left: 9px !important;
+  }
+  /* Hide the radio circle dots */
+  [data-testid="stSidebar"] .stRadio input[type="radio"] {
+    display: none !important;
+  }
+  [data-testid="stSidebar"] .stRadio div[data-testid="stWidgetLabel"] {
+    display: none !important;
+  }
+
+  /* ── Hero banner ── */
+  .hero-banner {
+    background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    color: white;
+  }
+  .hero-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .hero-sub { font-size: 1rem; opacity: 0.85; }
+
+  /* ── KPI cards ── */
+  .kpi-card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border: 1px solid #E2E8F0;
+  }
+  .kpi-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1E293B;
+    line-height: 1.1;
+  }
+  .kpi-label {
+    font-size: 0.78rem;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+
+  /* ── Metrics ── */
+  div[data-testid="stMetricValue"] {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #1E293B !important;
+  }
+  div[data-testid="stMetricLabel"] { color: #64748B !important; }
+  div[data-testid="stMetricDelta"]  { font-size: 0.82rem !important; }
+
+  /* ── Status colours ── */
+  .positive { color: #10B981 !important; }
+  .negative { color: #EF4444 !important; }
+  .neutral  { color: #64748B !important; }
+
+  /* ── Old dark metric card (kept for legacy pages) ── */
   .metric-card {
-    background: #1e2530;
-    border-radius: 12px;
+    background: white;
+    border-radius: 10px;
     padding: 16px 20px;
     margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid #E2E8F0;
   }
-  .big-metric { font-size: 2rem; font-weight: 700; }
-  .positive { color: #2ECC71; }
-  .negative { color: #E74C3C; }
-  .neutral  { color: #95A5A6; }
-  div[data-testid="stMetricValue"] { font-size: 1.5rem; }
+  .big-metric { font-size: 2rem; font-weight: 700; color: #1E293B; }
 
-  /* ── Mobile: screens 768px and under ── */
+  /* ── Mobile quick-summary card ── */
+  .mobile-card {
+    background: linear-gradient(135deg, #1a2a4a 0%, #0D1B2A 100%);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    border-left: 4px solid #F0B429;
+  }
+  .mobile-card h3 { color: #F0B429; margin: 0 0 4px 0; font-size: 0.9rem; }
+  .mobile-card .val { color: #fff; font-size: 1.8rem; font-weight: 700; }
+  .mobile-card .sub { color: #8ba0b4; font-size: 0.82rem; }
+
+  /* ── Plotly ── */
+  .js-plotly-plot .plotly, .stPlotlyChart { width: 100% !important; }
+
+  /* ── Mobile responsive ── */
   @media (max-width: 768px) {
+    [data-testid="column"] {
+      width: 100% !important; flex: 1 1 100% !important; min-width: 100% !important;
+    }
+    .block-container { padding: 0.75rem 0.75rem 2rem !important; max-width: 100% !important; }
+    [data-testid="stSidebar"] { width: 85vw !important; min-width: 260px !important; }
+    div[data-testid="stMetricValue"] { font-size: 1.25rem !important; }
+    .stButton > button { height: 48px !important; font-size: 1rem !important; width: 100% !important; }
+    input[type="text"], input[type="number"], textarea, select { font-size: 1rem !important; }
+    .stRadio label { font-size: 1rem !important; padding: 10px 0 !important; display: block !important; }
+    [data-testid="stDataFrame"] { overflow-x: auto !important; }
+    [data-testid="stDataFrame"] table { font-size: 0.78rem !important; }
+    .js-plotly-plot, .plotly { width: 100% !important; }
+    .stTabs [data-baseweb="tab"] { font-size: 0.82rem !important; padding: 8px 10px !important; }
+    .stProgress > div > div { height: 14px !important; border-radius: 7px !important; }
+    .stAlert { font-size: 0.95rem !important; padding: 12px 14px !important; }
+    .modebar { display: none !important; }
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.25rem !important; }
+    h3 { font-size: 1.1rem !important; }
+    .stCaption { font-size: 0.78rem !important; }
+    hr { margin: 0.75rem 0 !important; }
+    [data-testid="stFormSubmitButton"] > button {
+      height: 52px !important; font-size: 1.05rem !important; width: 100% !important;
+    }
+  }
+  @media (max-width: 480px) {
+    div[data-testid="stMetricValue"] { font-size: 1.1rem !important; }
+    h1 { font-size: 1.25rem !important; }
+    .block-container { padding: 0.5rem 0.5rem 2rem !important; }
+  }
 
-    /* Stack all columns vertically */
+  /* ── (duplicate mobile section removed) ── */
+  @media (max-width: 768px) {
     [data-testid="column"] {
       width: 100% !important;
       flex: 1 1 100% !important;
@@ -238,24 +398,91 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Sidebar navigation ────────────────────────────────────────────────────────
-st.sidebar.image("https://img.icons8.com/fluency/96/stock-share.png", width=64)
-st.sidebar.title("Investment Tracker")
-st.sidebar.markdown("---")
-
-page = st.sidebar.radio(
-    "Navigate",
-    ["📊 Overview", "📈 Market Data", "💼 Holdings", "📅 Monthly Tracker",
-     "🔍 Stock Analysis", "👀 Watchlist", "➕ Add Position",
-     "🦙 Alpaca Trading", "⚙️ Options Calculator",
-     "🔴 Robinhood Sync", "🔔 Price Alerts", "💰 Contribution Reminder",
-     "📋 Options Positions", "📉 Portfolio History",
-     "📓 Trade Journal", "🌅 Daily Briefing", "⚖️ Rebalancing Tool",
-     "🎯 Watchlist Targets", "📤 Export P&L", "💎 Net Worth Tracker",
-     "🤖 Auto Trader", "🧾 Tax Lots", "🧠 AI Insights"],
+# ── Grouped sidebar navigation ────────────────────────────────────────────────
+st.sidebar.markdown(
+    '<div style="padding:16px 16px 4px;font-size:18px;font-weight:700;color:#F8FAFC;'
+    'letter-spacing:0.02em">Investment Tracker</div>',
+    unsafe_allow_html=True
 )
+st.sidebar.markdown('<hr style="border-color:#1E3A5F;margin:4px 0 12px"/>', unsafe_allow_html=True)
 
-st.sidebar.markdown("---")
+NAV_GROUPS = {
+    "🏠  DASHBOARD": [
+        "📊 Overview",
+        "📈 Market Data",
+        "🌅 Daily Briefing",
+    ],
+    "💼  MY PORTFOLIO": [
+        "💼 Holdings",
+        "➕ Add Position",
+        "📅 Monthly Tracker",
+        "💎 Net Worth Tracker",
+    ],
+    "📊  ANALYSIS": [
+        "🔍 Stock Analysis",
+        "📉 Portfolio History",
+        "🎲 Monte Carlo",
+        "⚙️ Options Calculator",
+        "📋 Options Positions",
+        "🧾 Tax Lots",
+    ],
+    "⚡  TRADING": [
+        "🦙 Alpaca Trading",
+        "🔴 Robinhood Sync",
+        "🤖 Auto Trader",
+        "📓 Trade Journal",
+    ],
+    "🛠️  TOOLS": [
+        "👀 Watchlist",
+        "🔔 Price Alerts",
+        "🎯 Watchlist Targets",
+        "⚖️ Rebalancing Tool",
+        "💰 Contribution Reminder",
+        "📤 Export P&L",
+    ],
+    "🧠  AI": [
+        "🧠 AI Insights",
+        "💡 What to Buy?",
+    ],
+}
+
+ALL_PAGES = [p for pages in NAV_GROUPS.values() for p in pages]
+PAGE_TO_GROUP = {p: g for g, pages in NAV_GROUPS.items() for p in pages}
+
+# Determine active group from current page (persisted in session_state)
+if "active_nav_group" not in st.session_state:
+    st.session_state["active_nav_group"] = list(NAV_GROUPS.keys())[0]
+
+page = None
+for group_name, group_pages in NAV_GROUPS.items():
+    # Section header
+    st.sidebar.markdown(
+        f'<div style="padding:10px 12px 4px;font-size:10px;font-weight:700;'
+        f'color:#475569;letter-spacing:0.08em;text-transform:uppercase">'
+        f'{group_name}</div>',
+        unsafe_allow_html=True
+    )
+    selected = st.sidebar.radio(
+        label=group_name,
+        options=group_pages,
+        label_visibility="collapsed",
+        key=f"nav_{group_name}",
+    )
+    # If user clicked something in THIS group, it becomes the active page
+    if st.session_state.get(f"nav_{group_name}") in group_pages:
+        # Only count as active if this group was recently interacted with
+        if selected != st.session_state.get(f"_last_{group_name}", group_pages[0]):
+            st.session_state["active_nav_group"] = group_name
+            st.session_state[f"_last_{group_name}"] = selected
+        if st.session_state["active_nav_group"] == group_name:
+            page = selected
+
+if page is None:
+    # Default: first page of active group
+    active_group = st.session_state.get("active_nav_group", list(NAV_GROUPS.keys())[0])
+    page = NAV_GROUPS[active_group][0]
+
+st.sidebar.markdown('<hr style="border-color:#1E3A5F;margin:12px 0 6px"/>', unsafe_allow_html=True)
 st.sidebar.caption("Data refreshes on page load.")
 st.sidebar.caption("Powered by yfinance & CoinGecko")
 
