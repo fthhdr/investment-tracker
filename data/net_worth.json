@@ -1,0 +1,52 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-04-25",
+      "checking": 0.0,
+      "savings": 0.0,
+      "investments": 0.0,
+      "crypto": 0.0,
+      "car_value": 0.0,
+      "other_assets": 0.0,
+      "total_assets": 0.0,
+      "car_loan": 0.0,
+      "credit_cards": 0.0,
+      "other_debts": 0.0,
+      "total_debts": 0.0,
+      "net_worth": 0.0,
+      "note": ""
+    },
+    {
+      "date": "2026-04-25",
+      "checking": 0.0,
+      "savings": 1500.0,
+      "investments": 0.0,
+      "crypto": 0.0,
+      "car_value": 0.0,
+      "other_assets": 0.0,
+      "total_assets": 1500.0,
+      "car_loan": 0.0,
+      "credit_cards": 0.0,
+      "other_debts": 0.0,
+      "total_debts": 0.0,
+      "net_worth": 1500.0,
+      "note": ""
+    },
+    {
+      "date": "2026-04-25",
+      "checking": 0.0,
+      "savings": 1500.0,
+      "investments": 536.0,
+      "crypto": 0.0,
+      "car_value": 0.0,
+      "other_assets": 0.0,
+      "total_assets": 2036.0,
+      "car_loan": 21210.25,
+      "credit_cards": 0.0,
+      "other_debts": 0.0,
+      "total_debts": 21210.25,
+      "net_worth": -19174.25,
+      "note": ""
+    }
+  ]
+}

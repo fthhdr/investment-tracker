@@ -1,0 +1,89 @@
+{
+  "transactions": [
+    {
+      "date": "2026-04-15",
+      "symbol": "AAPL",
+      "type": "BUY",
+      "shares": 0.300511,
+      "price": 251.07,
+      "total": 75.45,
+      "asset_type": "stock"
+    },
+    {
+      "date": "2026-04-15",
+      "symbol": "TSLA",
+      "type": "BUY",
+      "shares": 0.304522,
+      "price": 394.06,
+      "total": 120.0,
+      "asset_type": "stock"
+    },
+    {
+      "date": "2026-04-15",
+      "symbol": "RGTI",
+      "type": "BUY",
+      "shares": 4.169055,
+      "price": 19.19,
+      "total": 80.0,
+      "asset_type": "stock"
+    },
+    {
+      "date": "2026-04-15",
+      "symbol": "APLD",
+      "type": "BUY",
+      "shares": 3.063178,
+      "price": 31.34,
+      "total": 96.0,
+      "asset_type": "stock"
+    },
+    {
+      "date": "2026-04-15",
+      "symbol": "SCHD",
+      "type": "BUY",
+      "shares": 2.611392,
+      "price": 30.64,
+      "total": 80.01,
+      "asset_type": "etf"
+    },
+    {
+      "date": "2026-04-15",
+      "symbol": "QBTS",
+      "type": "BUY",
+      "shares": 3,
+      "price": 21.7,
+      "total": 65.1,
+      "asset_type": "stock"
+    },
+    {
+      "date": "2026-04-15",
+      "symbol": "ETH-USD",
+      "type": "BUY",
+      "shares": 0.005126,
+      "price": 3866.56,
+      "total": 19.82,
+      "asset_type": "crypto"
+    },
+    {
+      "date": "2026-04-17",
+      "symbol": "BUGBEAR.AI",
+      "type": "BUY",
+      "shares": 100.0,
+      "price": 3.82,
+      "total": 382.0,
+      "asset_type": "stock"
+    }
+  ],
+  "monthly_contributions": [
+    {
+      "month": "2026-04",
+      "planned": 650.0,
+      "actual": 536.0,
+      "allocated": {
+        "stocks": 214.4,
+        "etf": 134.0,
+        "crypto": 107.2,
+        "reit": 80.4
+      }
+    }
+  ]
+}

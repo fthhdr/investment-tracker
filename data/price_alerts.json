@@ -1,0 +1,31 @@
+{
+  "alerts": [
+    {
+      "symbol": "OKLO",
+      "name": "Oklo Inc.",
+      "condition": "below",
+      "target_price": 60.00,
+      "note": "Nuclear energy — buy the dip",
+      "active": true,
+      "created": "2026-04-18"
+    },
+    {
+      "symbol": "QUBT",
+      "name": "Quantum Computing Inc.",
+      "condition": "below",
+      "target_price": 8.00,
+      "note": "Good entry under $8",
+      "active": true,
+      "created": "2026-04-18"
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "condition": "above",
+      "target_price": 280.00,
+      "note": "Take profit signal",
+      "active": true,
+      "created": "2026-04-18"
+    }
+  ]
+}

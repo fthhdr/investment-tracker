@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.tinkam.alertmonitor</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.14/bin/python3</string>
+        <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker/alert_monitor.py</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker/data/alert_monitor.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker/data/alert_monitor_error.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker</string>
+</dict>
+</plist>

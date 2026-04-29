@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.tinkam.dailyreport</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Frameworks/Python.framework/Versions/3.14/bin/python3</string>
+        <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker/daily_report.py</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker/data/daily_report.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker/data/daily_report_error.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/royantinkam/Documents/Claude/Projects/investment plan (2026)/investment_tracker</string>
+</dict>
+</plist>

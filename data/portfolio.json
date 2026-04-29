@@ -1,0 +1,99 @@
+{
+  "holdings": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "type": "stock",
+      "shares": 0.300511,
+      "avg_cost": 251.07,
+      "purchase_date": "2026-04-15"
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla Inc.",
+      "type": "stock",
+      "shares": 0.304522,
+      "avg_cost": 394.06,
+      "purchase_date": "2026-04-15"
+    },
+    {
+      "symbol": "RGTI",
+      "name": "Rigetti Computing",
+      "type": "stock",
+      "shares": 4.169055,
+      "avg_cost": 19.19,
+      "purchase_date": "2026-04-15"
+    },
+    {
+      "symbol": "APLD",
+      "name": "Applied Digital Corp.",
+      "type": "stock",
+      "shares": 3.063178,
+      "avg_cost": 31.34,
+      "purchase_date": "2026-04-15"
+    },
+    {
+      "symbol": "SCHD",
+      "name": "Schwab US Dividend Equity ETF",
+      "type": "etf",
+      "shares": 2.611392,
+      "avg_cost": 30.64,
+      "purchase_date": "2026-04-15"
+    },
+    {
+      "symbol": "QBTS",
+      "name": "D-Wave Quantum Inc.",
+      "type": "stock",
+      "shares": 3,
+      "avg_cost": 21.7,
+      "purchase_date": "2026-04-15"
+    },
+    {
+      "symbol": "ETH-USD",
+      "name": "Ethereum",
+      "type": "crypto",
+      "shares": 0.005126,
+      "avg_cost": 3866.56,
+      "purchase_date": "2026-04-15"
+    }
+  ],
+  "options": [],
+  "watchlist": [
+    {
+      "symbol": "QUBT",
+      "name": "Quantum Computing Inc.",
+      "type": "stock",
+      "note": "Watching for entry"
+    },
+    {
+      "symbol": "SWMR",
+      "name": "Swarmer",
+      "type": "stock",
+      "note": "Watching \u2014 currently down"
+    },
+    {
+      "symbol": "SHLD",
+      "name": "Global X Defense ETF",
+      "type": "etf",
+      "note": "Defense sector ETF \u2014 watching for entry"
+    },
+    {
+      "symbol": "OKLO",
+      "name": "Oklo Inc.",
+      "type": "stock",
+      "note": "Nuclear energy \u2014 watching for entry"
+    },
+    {
+      "symbol": "ATOM",
+      "name": "Atomera Inc.",
+      "type": "stock",
+      "note": "Semiconductor materials \u2014 watching"
+    },
+    {
+      "symbol": "ADPT",
+      "name": "Adaptive Biotechnologies",
+      "type": "stock",
+      "note": "Biotech \u2014 watching for entry"
+    }
+  ]
+}
