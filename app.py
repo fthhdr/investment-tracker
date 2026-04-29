@@ -114,9 +114,13 @@ st.markdown("""
     font-weight: 600 !important;
     padding-left: 7px !important;
   }
-  /* Hide radio circles and all widget labels in sidebar */
-  [data-testid="stSidebar"] .stRadio input[type="radio"] {
+  /* Hide radio circles and widget labels in sidebar — all selectors */
+  [data-testid="stSidebar"] .stRadio input[type="radio"],
+  [data-testid="stSidebar"] .stRadio input[type="radio"] + div,
+  [data-testid="stSidebar"] .stRadio [data-baseweb="radio"] > div:first-child {
     display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
   [data-testid="stSidebar"] .stRadio > label,
   [data-testid="stSidebar"] .stRadio div[data-testid="stWidgetLabel"],
@@ -125,6 +129,11 @@ st.markdown("""
     height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+  /* Target the BaseWeb radio circle specifically */
+  [data-testid="stSidebar"] [data-baseweb="radio"] span[role="radio"],
+  [data-testid="stSidebar"] [data-baseweb="radio"] > div {
+    display: none !important;
   }
   /* Tighten spacing between radio groups */
   [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
