@@ -466,42 +466,38 @@ NAV_GROUPS = {
     ],
 }
 
-ALL_PAGES = [p for pages in NAV_GROUPS.values() for p in pages]
-PAGE_TO_GROUP = {p: g for g, pages in NAV_GROUPS.items() for p in pages}
+# ── Nav callback — fires when any radio changes ───────────────────────────────
+# LESSON: on_change callbacks run BEFORE the rest of the script on each rerun.
+# This is the only reliable way to know WHICH radio group the user clicked in.
+def _nav_changed(group_name):
+    st.session_state["current_page"] = st.session_state[f"nav_{group_name}"]
 
-# Determine active group from current page (persisted in session_state)
-if "active_nav_group" not in st.session_state:
-    st.session_state["active_nav_group"] = list(NAV_GROUPS.keys())[0]
+# Initialise current page
+if "current_page" not in st.session_state:
+    st.session_state["current_page"] = "📊 Overview"
 
-page = None
+# Render grouped nav
 for group_name, group_pages in NAV_GROUPS.items():
-    # Section header
     st.sidebar.markdown(
         f'<div style="padding:8px 10px 2px;font-size:9.5px;font-weight:700;'
-        f'color:#334155;letter-spacing:0.1em;text-transform:uppercase;'
-        f'margin-top:4px">'
+        f'color:#475569;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px">'
         f'{group_name}</div>',
         unsafe_allow_html=True
     )
-    selected = st.sidebar.radio(
+    # Set index so the radio highlights the currently active page if it's in this group
+    cur = st.session_state["current_page"]
+    idx = group_pages.index(cur) if cur in group_pages else 0
+    st.sidebar.radio(
         label=" ",
         options=group_pages,
+        index=idx,
         label_visibility="collapsed",
         key=f"nav_{group_name}",
+        on_change=_nav_changed,
+        args=(group_name,),
     )
-    # If user clicked something in THIS group, it becomes the active page
-    if st.session_state.get(f"nav_{group_name}") in group_pages:
-        # Only count as active if this group was recently interacted with
-        if selected != st.session_state.get(f"_last_{group_name}", group_pages[0]):
-            st.session_state["active_nav_group"] = group_name
-            st.session_state[f"_last_{group_name}"] = selected
-        if st.session_state["active_nav_group"] == group_name:
-            page = selected
 
-if page is None:
-    # Default: first page of active group
-    active_group = st.session_state.get("active_nav_group", list(NAV_GROUPS.keys())[0])
-    page = NAV_GROUPS[active_group][0]
+page = st.session_state["current_page"]
 
 st.sidebar.markdown('<hr style="border-color:#1E3A5F;margin:12px 0 6px"/>', unsafe_allow_html=True)
 st.sidebar.caption("Data refreshes on page load.")
