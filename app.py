@@ -85,39 +85,46 @@ st.markdown("""
     color: #F8FAFC !important;
   }
 
-  /* ── Sidebar nav: hide radio circles, style as nav items ── */
+  /* ── Sidebar nav: compact technical style ── */
   [data-testid="stSidebar"] .stRadio > div {
-    gap: 2px !important;
+    gap: 0px !important;
   }
   [data-testid="stSidebar"] .stRadio label {
     background: transparent;
-    border-radius: 6px;
-    padding: 7px 12px !important;
+    border-radius: 4px;
+    padding: 5px 10px !important;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background 0.12s;
     display: block !important;
     width: 100% !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
     color: #94A3B8 !important;
+    line-height: 1.4 !important;
   }
   [data-testid="stSidebar"] .stRadio label:hover {
-    background: rgba(255,255,255,0.07) !important;
-    color: #E2E8F0 !important;
+    background: rgba(255,255,255,0.06) !important;
+    color: #CBD5E1 !important;
   }
   [data-testid="stSidebar"] .stRadio [data-checked="true"] ~ label,
   [data-testid="stSidebar"] .stRadio label[data-checked="true"] {
-    background: rgba(37,99,235,0.2) !important;
-    border-left: 3px solid #2563EB !important;
+    background: rgba(37,99,235,0.18) !important;
+    border-left: 3px solid #3B82F6 !important;
     color: #FFFFFF !important;
     font-weight: 600 !important;
-    padding-left: 9px !important;
+    padding-left: 7px !important;
   }
-  /* Hide the radio circle dots */
+  /* Hide radio circles */
   [data-testid="stSidebar"] .stRadio input[type="radio"] {
     display: none !important;
   }
   [data-testid="stSidebar"] .stRadio div[data-testid="stWidgetLabel"] {
     display: none !important;
+  }
+  /* Tighten spacing between radio groups */
+  [data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
   }
 
   /* ── Hero banner ── */
@@ -457,8 +464,9 @@ page = None
 for group_name, group_pages in NAV_GROUPS.items():
     # Section header
     st.sidebar.markdown(
-        f'<div style="padding:10px 12px 4px;font-size:10px;font-weight:700;'
-        f'color:#475569;letter-spacing:0.08em;text-transform:uppercase">'
+        f'<div style="padding:8px 10px 2px;font-size:9.5px;font-weight:700;'
+        f'color:#334155;letter-spacing:0.1em;text-transform:uppercase;'
+        f'margin-top:4px">'
         f'{group_name}</div>',
         unsafe_allow_html=True
     )
